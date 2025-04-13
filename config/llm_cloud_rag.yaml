@@ -1,0 +1,40 @@
+experiment_name: English GPT-4 Evaluation
+description: Evaluation of GPT-4 on English dataset with OpenAI embeddings
+
+retrieval:
+  retriever_type: vector
+  embedding_model: text-embedding-3-large
+  k: 4
+  chunk_size: 1000
+  chunk_overlap: 200
+  search_type: similarity
+
+llm:
+  model_name: gpt-4o
+  provider: openai
+  temperature: 0.0
+  max_tokens: 1024
+
+dataset:
+  name: english_qa
+  language: english
+  path: data/english/qa_dataset.json
+  format: json
+
+evaluation_metrics:
+  retrieval_metrics:
+    - precision_at_k
+    - recall_at_k
+    - mrr
+    - ndcg
+  generation_metrics:
+    - correctness
+    - relevance
+    - groundedness
+    - coherence
+    - conciseness
+  system_metrics:
+    - latency
+    - cost
+
+output_dir: ./results/english_gpt4 

@@ -1,0 +1,39 @@
+experiment_name: Arabic Evaluation with Gemma3
+description: Evaluation on Arabic dataset with multilingual embeddings
+
+retrieval:
+  retriever_type: vector
+  embedding_model: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+  k: 4
+  chunk_size: 1000
+  chunk_overlap: 200
+  search_type: similarity
+
+llm:
+  model_name: gemma3:4b
+  provider: ollama
+  temperature: 0.0
+  max_tokens: 512
+
+dataset:
+  name: arabic_qa
+  language: arabic
+  path: data/arabic/qa_dataset.json
+  format: json
+
+evaluation_metrics:
+  retrieval_metrics:
+    - precision_at_k
+    - recall_at_k
+    - mrr
+    - ndcg
+  generation_metrics:
+    - correctness
+    - relevance
+    - groundedness
+    - coherence
+    - conciseness
+  system_metrics:
+    - latency
+
+output_dir: ./results/arabic_gemma3 

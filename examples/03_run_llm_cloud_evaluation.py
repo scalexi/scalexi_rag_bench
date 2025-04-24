@@ -41,7 +41,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--config",
         type=str,
-        default="../config/llm_cloud_evaluation.yaml",
+        default="../config/llm_cloud_rag.yaml",
         help="Path to configuration YAML file"
     )
     

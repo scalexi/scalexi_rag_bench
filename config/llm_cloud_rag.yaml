@@ -18,7 +18,8 @@ llm:
 dataset:
   name: english_qa
   language: english
-  path: data/english/qa_dataset.json
+  #path: ../data/english/qa_dataset.json
+  path: ../data/english/english_dataset.json
   format: json
 
 evaluation_metrics:

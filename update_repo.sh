@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Configuration variables
-VERSION="1.0.0"
+VERSION="1.0.1"
 BRANCH="main"
 MESSAGE="Update repository to version ${VERSION}"
 REMOTE="origin"

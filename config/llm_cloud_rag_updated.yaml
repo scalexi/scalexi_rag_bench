@@ -38,6 +38,6 @@ retrieval:
   search_type: similarity
   similarity_top_k: null
 vectorstore:
-  output_dir: ./vectorstores/english_txt
+  output_dir: ./vectorstores/english_qa
   path: ./vectorstores/english_qa/english_qa_cef5436db0
-  source_path: data/english/data_source.txt
+  source_path: data/english/qa_dataset.json

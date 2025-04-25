@@ -1,0 +1,42 @@
+dataset:
+  format: json
+  language: arabic
+  name: arabic_qa
+  path: data/arabic/qa_dataset.json
+description: Evaluation on Arabic dataset with multilingual embeddings
+evaluation_metrics:
+  generation_metrics:
+  - correctness
+  - relevance
+  - groundedness
+  - coherence
+  - conciseness
+  retrieval_metrics:
+  - precision_at_k
+  - recall_at_k
+  - mrr
+  - ndcg
+  system_metrics:
+  - latency
+experiment_name: Arabic Evaluation with Gemma3
+llm:
+  api_key: null
+  max_tokens: 512
+  model_name: gemma3:4b
+  provider: ollama
+  temperature: 0.0
+  top_p: null
+output_dir: ./results/arabic_gemma3
+retrieval:
+  chunk_overlap: 200
+  chunk_size: 1000
+  embedding_model: text-embedding-3-small
+  filters: null
+  k: 4
+  retriever_type: vector
+  search_type: similarity
+  similarity_top_k: null
+vectorstore:
+  output_dir: ./vectorstores/arabic_qa
+  path: ./vectorstores/arabic_qa/arabic_qa_93fcb6cd07
+  source_path: data/arabic/data_source.txt

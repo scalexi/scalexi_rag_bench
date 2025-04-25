@@ -1,0 +1,8 @@
+{
+  "source_path": "data/english/qa_dataset.json",
+  "chunk_size": 1000,
+  "chunk_overlap": 200,
+  "document_count": 11,
+  "chunk_count": 11,
+  "dataset_name": "english_qa"
+}

@@ -43,7 +43,17 @@ class RAGEvaluator:
         # Initialize components based on config
         self.llm = get_llm(config.llm)
         self.embedding_model = get_embedding_model(config.retrieval.embedding_model)
-        self.retriever = get_retriever(config.retrieval, self.embedding_model)
+        
+        # Get vector store path from config if available
+        vectorstore_path = None
+        if hasattr(config, 'vectorstore') and config.vectorstore and hasattr(config.vectorstore, 'path'):
+            vectorstore_path = config.vectorstore.path
+            if vectorstore_path and not os.path.exists(vectorstore_path):
+                print(f"Warning: Vector store path {vectorstore_path} does not exist. Falling back to empty vector store.")
+                vectorstore_path = None
+        
+        # Initialize retriever with the vector store path
+        self.retriever = get_retriever(config.retrieval, self.embedding_model, vectorstore_path)
         
         # Set up evaluation metrics
         self.retrieval_evaluators = get_retrieval_evaluators(config.evaluation_metrics.retrieval_metrics)
@@ -164,7 +174,8 @@ class RAGEvaluator:
             metadata={
                 "model": self.config.llm.model_name,
                 "embedding_model": self.config.retrieval.embedding_model,
-                "language": self.config.dataset.language
+                "language": self.config.dataset.language,
+                "vectorstore": getattr(self.config.vectorstore, 'path', 'none') if hasattr(self.config, 'vectorstore') else 'none'
             }
         )
         
@@ -209,6 +220,11 @@ class RAGEvaluator:
         for metric, value in mean_scores.items():
             metrics_table += f"<tr><td>{metric}</td><td>{value:.4f}</td></tr>"
         
+        # Get vector store info
+        vectorstore_info = "None"
+        if hasattr(self.config, 'vectorstore') and self.config.vectorstore and hasattr(self.config.vectorstore, 'path'):
+            vectorstore_info = self.config.vectorstore.path
+        
         # Basic HTML report for now, can be enhanced later
         html_content = f"""
         <html>
@@ -232,6 +248,7 @@ class RAGEvaluator:
                     <tr><td>Embedding Model</td><td>{self.config.retrieval.embedding_model}</td></tr>
                     <tr><td>Dataset</td><td>{self.config.dataset.name}</td></tr>
                     <tr><td>Language</td><td>{self.config.dataset.language}</td></tr>
+                    <tr><td>Vector Store</td><td>{vectorstore_info}</td></tr>
                 </table>
                 
                 <h2>Evaluation Metrics</h2>

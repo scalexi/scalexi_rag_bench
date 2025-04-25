@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Configuration variables
-VERSION="1.0.1"
+VERSION="1.1.0"
 BRANCH="main"
-MESSAGE="Update repository to version ${VERSION}"
+MESSAGE="added vectorstore from text data source ${VERSION}"
 REMOTE="origin"
 
 # Colors for output

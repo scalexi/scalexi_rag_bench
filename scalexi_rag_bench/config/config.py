@@ -54,6 +54,17 @@ class DatasetConfig(BaseModel):
         extra = "allow"
 
 
+class VectorStoreConfig(BaseModel):
+    """Configuration for vector store."""
+    
+    path: Optional[str] = Field(None, description="Path to the vector store (required for evaluation)")
+    source_path: str = Field(..., description="Path to source data for creating the vector store (REQUIRED)")
+    output_dir: Optional[str] = Field(None, description="Directory to save the vector store")
+    
+    class Config:
+        extra = "allow"
+
+
 class EvaluationMetricsConfig(BaseModel):
     """Configuration for evaluation metrics."""
     
@@ -83,6 +94,7 @@ class Config(BaseModel):
     retrieval: RetrievalConfig = Field(..., description="Configuration for retrieval")
     llm: LLMConfig = Field(..., description="Configuration for LLM")
     dataset: DatasetConfig = Field(..., description="Configuration for dataset")
+    vectorstore: VectorStoreConfig = Field(..., description="Configuration for vector store (REQUIRED)")
     evaluation_metrics: EvaluationMetricsConfig = Field(
         ..., description="Configuration for evaluation metrics"
     )

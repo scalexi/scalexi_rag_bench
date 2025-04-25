@@ -1,0 +1,8 @@
+{
+  "source_path": "data/arabic/data_source.txt",
+  "chunk_size": 1000,
+  "chunk_overlap": 200,
+  "document_count": 1,
+  "chunk_count": 5,
+  "dataset_name": "arabic_qa"
+}

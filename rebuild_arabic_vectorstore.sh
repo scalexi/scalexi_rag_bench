@@ -1,0 +1,1 @@
+scripts/rebuild_arabic_vectorstore.sh

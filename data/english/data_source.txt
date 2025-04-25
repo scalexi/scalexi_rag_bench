@@ -1,0 +1,43 @@
+Retrieval-Augmented Generation (RAG) combines the strengths of retrieval-based and generation-based approaches in natural language processing. In RAG, an LLM first retrieves relevant information from a knowledge base and then uses this information to generate accurate and contextually relevant responses.
+
+RAG addresses several limitations of traditional LLMs, such as hallucinations, outdated knowledge, and lack of domain-specific expertise. By incorporating external knowledge, RAG systems can provide more accurate, up-to-date, and verifiable responses.
+
+RAG architectures generally comprise three key components. First, the retriever component searches for relevant information from an external knowledge source based on the input query. Second, the indexing system organizes and stores the knowledge in a format optimized for retrieval. Third, the generator (typically an LLM) takes both the original query and the retrieved information to produce a coherent and accurate response.
+
+One of the key benefits of RAG is its ability to reduce hallucinations in LLM outputs. Hallucinations occur when an LLM confidently generates false or misleading information. By retrieving relevant documents before generation, RAG provides the model with factual information, effectively grounding its responses in reality rather than relying solely on parametric knowledge.
+
+The retrieved context in RAG serves as a knowledge constraint during the generation phase. This helps guide the LLM to produce responses that align with the facts presented in the retrieved documents, significantly reducing the likelihood of fabricated information in the output.
+
+Evaluating RAG systems requires a multifaceted approach. Retrieval quality is typically measured using metrics like precision@k, recall@k, Mean Reciprocal Rank (MRR), and NDCG. These metrics assess how effectively the system retrieves relevant information from the knowledge base.
+
+The generation component of RAG is evaluated using metrics like factual accuracy, relevance to the query, groundedness in the retrieved context, coherence, and conciseness. These metrics help determine if the generated response correctly uses the retrieved information and addresses the user's question effectively.
+
+System-level metrics for RAG include latency (response time), throughput (queries processed per unit time), and cost (computational and financial resources required). These operational metrics are crucial for assessing the practical deployability of RAG systems.
+
+RAG systems employ different retrieval mechanisms. Embedding-based (dense) retrieval converts documents and queries into vector representations that capture semantic meaning. This allows for finding conceptually similar content even when the exact wording differs. Popular embedding models include OpenAI embeddings, BERT, and sentence transformers.
+
+Sparse retrieval methods like BM25 focus on term frequency and exact keyword matching rather than semantic understanding. While less sophisticated than embedding-based approaches, sparse retrieval can be more precise when exact terminology matters and requires less computational resources.
+
+Hybrid retrieval combines dense and sparse approaches to leverage the strengths of both. For example, a system might use BM25 to find keyword matches and embedding similarity to capture semantic relationships, then merge the results. This approach often yields better performance than either method alone.
+
+Prompt engineering is the process of designing and refining input prompts to effectively guide large language models (LLMs) to produce desired outputs. It involves crafting clear, specific, and contextually appropriate instructions to optimize model performance for various tasks.
+
+Effective prompt engineering improves the accuracy and relevance of LLM responses. By providing detailed instructions, examples, or constraints, users can reduce ambiguity and guide the model toward generating outputs that align with their goals.
+
+A key technique in prompt engineering is the use of few-shot learning, where the prompt includes a small number of examples to demonstrate the desired task. For instance, providing sample question-answer pairs can help the model understand the expected format and content of the response.
+
+Zero-shot prompting, another approach, relies on clear instructions without examples. This method is useful when the task is straightforward or when examples are impractical to include, but it requires precise wording to avoid misinterpretation by the model.
+
+Chain-of-thought (CoT) prompting encourages LLMs to reason step-by-step before providing a final answer. By explicitly instructing the model to "think through the problem" or break it down into intermediate steps, CoT improves performance on complex tasks like mathematical reasoning or logical analysis.
+
+Prompt engineering also involves managing model limitations, such as sensitivity to phrasing or tendency to produce biased outputs. Iterative testing and refinement of prompts are often necessary to identify the most effective wording and structure for a given task.
+
+Contextual prompts provide relevant background information to ground the model's responses. For example, including domain-specific details or specifying the target audience can help ensure the output is appropriately tailored and accurate.
+
+Evaluation of prompt effectiveness can be qualitative, based on the relevance and quality of outputs, or quantitative, using metrics like accuracy, BLEU, or ROUGE for tasks with ground-truth data. Iterative experimentation is key to optimizing prompts.
+
+Prompt engineering is widely used across applications, including text generation, question answering, code generation, and creative writing. Its versatility makes it a critical skill for leveraging LLMs in both research and practical settings.
+
+Advanced techniques, such as role-based prompting, involve instructing the model to adopt a specific persona, like "act as a teacher" or "respond as a scientist." This can enhance the tone, style, and depth of the output to match user expectations.
+
+Prompt engineering remains an evolving field, with ongoing research into automating prompt design through methods like prompt tuning or meta-prompting, where models are trained to generate optimal prompts for specific tasks.

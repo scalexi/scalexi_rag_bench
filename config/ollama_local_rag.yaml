@@ -3,7 +3,7 @@ description: Evaluation on Arabic dataset with multilingual embeddings
 
 retrieval:
   retriever_type: vector
-  embedding_model: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+  embedding_model: text-embedding-3-small
   k: 4
   chunk_size: 1000
   chunk_overlap: 200
@@ -20,6 +20,11 @@ dataset:
   language: arabic
   path: data/arabic/qa_dataset.json
   format: json
+
+vectorstore:
+  source_path: data/arabic/data_source.txt
+  output_dir: ./vectorstores/arabic_qa
+  path: null  # Will be populated after vector store creation
 
 evaluation_metrics:
   retrieval_metrics:

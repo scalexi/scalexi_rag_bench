@@ -113,4 +113,10 @@ results/*
 *.db
 *.sqlite
 *.embeddings
-.chroma/ 
+.chroma/
+
+# Backup files
+*.bak
+*~
+*.backup
+*.swp 

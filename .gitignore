@@ -5,7 +5,7 @@ __pycache__/
 
 # C extensions
 *.so
-
+update_repo.sh
 # Distribution / packaging
 .Python
 build/

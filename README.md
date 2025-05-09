@@ -1,4 +1,4 @@
-# ScaleXI RAG Benchmark Toolkit
+# ScaleXI RAG Benchmark Framework
 
 A comprehensive framework for evaluating Retrieval-Augmented Generation (RAG) systems across different models, embedding techniques, and datasets.
 
@@ -410,6 +410,90 @@ pip install -r requirements.txt
 ```
 
 For local evaluations, [Ollama](https://ollama.ai/) must be installed and running.
+
+## 🔧 Installing Local Models with Ollama
+
+For local evaluations, the toolkit uses [Ollama](https://ollama.ai/) to run models on your machine. This section provides guidance on setting up Gemma 3 and other models locally.
+
+### Installing Ollama
+
+1. Download and install Ollama for your platform from [ollama.ai](https://ollama.ai/)
+2. Verify installation by running in your terminal:
+   ```bash
+   ollama --version
+   ```
+
+### Installing Gemma 3 Models
+
+Gemma 3 models are Google's latest open language models that offer excellent performance for local use:
+
+1. Pull the Gemma 3 model you want to use:
+   ```bash
+   # For the 8B model
+   ollama pull gemma3:8b
+   
+   # For the instruction-tuned 8B model (recommended for RAG)
+   ollama pull gemma3:8b-instruct
+   
+   # For the smaller 2B model
+   ollama pull gemma3:2b
+   
+   # For the instruction-tuned 2B model
+   ollama pull gemma3:2b-instruct
+   ```
+
+2. Verify the model is installed:
+   ```bash
+   ollama list
+   ```
+
+3. Update your configuration file to use Gemma 3:
+   ```yaml
+   llm:
+     model_name: "gemma3:8b-instruct"  # Choose the appropriate model
+     provider: "ollama"
+     temperature: 0.1
+   ```
+
+### Other Recommended Ollama Models
+
+Other high-performing models for local RAG evaluation:
+
+- **Llama 3**: Meta's latest open models
+  ```bash
+  ollama pull llama3:8b
+  ollama pull llama3:8b-instruct
+  ```
+
+- **Mistral**: Excellent performance-to-size ratio
+  ```bash
+  ollama pull mistral:7b
+  ollama pull mistral:7b-instruct
+  ```
+
+- **Neural Chat**: Optimized for conversational use
+  ```bash
+  ollama pull neural-chat:7b
+  ```
+
+### Ollama Custom Parameters
+
+You can customize model parameters by specifying them in your config:
+
+```yaml
+llm:
+  model_name: "gemma3:8b-instruct"
+  provider: "ollama"
+  temperature: 0.1
+  base_url: "http://localhost:11434"  # Default Ollama API endpoint
+```
+
+### Troubleshooting Local Models
+
+- **Memory Issues**: For large models like Gemma 3 8B, ensure your system has at least 16GB RAM
+- **Slow First Run**: The first run will be slower as the model loads into memory
+- **CUDA Support**: For GPU acceleration, ensure you have CUDA installed if using NVIDIA GPUs
+- **Server Connection**: Verify Ollama is running with `ollama serve` if you encounter connection issues
 
 ## 🔐 Environment Setup
 

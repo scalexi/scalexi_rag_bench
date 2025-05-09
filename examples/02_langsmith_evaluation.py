@@ -103,7 +103,7 @@ def correctness_evaluator(inputs: Dict, outputs: Dict, reference_outputs: Dict) 
     Correctness: True if the answer meets all criteria, False otherwise."""
     
     correctness_llm = ChatOpenAI(
-        model="gpt-4o-mini", 
+        model="gpt-4o-mini-mini", 
         temperature=0
     ).with_structured_output(CorrectnessGrade)
     
@@ -131,7 +131,7 @@ def relevance_evaluator(inputs: Dict, outputs: Dict) -> Dict:
     Explain your reasoning step-by-step."""
     
     relevance_llm = ChatOpenAI(
-        model="gpt-4o-mini", 
+        model="gpt-4o-mini-mini", 
         temperature=0
     ).with_structured_output(RelevanceGrade)
     
@@ -158,7 +158,7 @@ def groundedness_evaluator(inputs: Dict, outputs: Dict) -> Dict:
     Explain your reasoning step-by-step."""
     
     grounded_llm = ChatOpenAI(
-        model="gpt-4o-mini", 
+        model="gpt-4o-mini-mini", 
         temperature=0
     ).with_structured_output(GroundednessGrade)
     

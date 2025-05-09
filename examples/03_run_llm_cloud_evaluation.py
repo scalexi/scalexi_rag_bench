@@ -37,13 +37,17 @@ def main(config_path: str):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Run RAG evaluation")
-    parser.add_argument(
-        "--config",
-        type=str,
-        default="../config/llm_cloud_rag.yaml",
-        help="Path to configuration YAML file"
-    )
-    
-    args = parser.parse_args()
-    main(args.config) 
+    try:
+        parser = argparse.ArgumentParser(description="Run RAG evaluation")
+        parser.add_argument(
+            "--config",
+            type=str,
+            default="config/llm_cloud_rag.yaml",
+            help="Path to configuration YAML file"
+        )
+        
+        args = parser.parse_args()
+        main(args.config) 
+    except Exception as e:
+        print(f"[Error]run from the root directory as: python examples/03_run_llm_cloud_evaluation.py --config config/llm_cloud_rag.yaml")
+        sys.exit(1)

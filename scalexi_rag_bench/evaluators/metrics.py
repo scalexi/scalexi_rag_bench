@@ -86,7 +86,7 @@ def create_precision_at_k_evaluator() -> Callable:
     Precision: A float between 0 and 1 representing the proportion of relevant documents."""
     
     precision_llm = ChatOpenAI(
-        model="gpt-4o", 
+        model="gpt-4o-mini", 
         temperature=0
     ).with_structured_output(PrecisionGrade)
     
@@ -137,7 +137,7 @@ def create_recall_at_k_evaluator() -> Callable:
     Recall: A float between 0 and 1 representing the proportion of ground truth documents that were retrieved."""
     
     recall_llm = ChatOpenAI(
-        model="gpt-4o", 
+        model="gpt-4o-mini", 
         temperature=0
     ).with_structured_output(RecallGrade)
     
@@ -189,7 +189,7 @@ def create_mrr_evaluator() -> Callable:
     MRR: A float between 0 and 1."""
     
     mrr_llm = ChatOpenAI(
-        model="gpt-4o", 
+        model="gpt-4o-mini", 
         temperature=0
     ).with_structured_output(MRRGrade)
     
@@ -241,7 +241,7 @@ def create_ndcg_evaluator() -> Callable:
     NDCG: A float between 0 and 1."""
     
     ndcg_llm = ChatOpenAI(
-        model="gpt-4o", 
+        model="gpt-4o-mini", 
         temperature=0
     ).with_structured_output(NDCGGrade)
     
@@ -294,7 +294,7 @@ def create_correctness_evaluator() -> Callable:
     Correctness: True if the answer meets all criteria, False otherwise."""
     
     correctness_llm = ChatOpenAI(
-        model="gpt-4o", 
+        model="gpt-4o-mini", 
         temperature=0
     ).with_structured_output(CorrectnessGrade)
     
@@ -335,7 +335,7 @@ def create_relevance_evaluator() -> Callable:
     Explain your reasoning step-by-step."""
     
     relevance_llm = ChatOpenAI(
-        model="gpt-4o", 
+        model="gpt-4o-mini", 
         temperature=0
     ).with_structured_output(RelevanceGrade)
     
@@ -369,7 +369,7 @@ def create_groundedness_evaluator() -> Callable:
     Explain your reasoning step-by-step."""
     
     grounded_llm = ChatOpenAI(
-        model="gpt-4o", 
+        model="gpt-4o-mini", 
         temperature=0
     ).with_structured_output(GroundednessGrade)
     
@@ -413,7 +413,7 @@ def create_coherence_evaluator() -> Callable:
     Explain your reasoning step-by-step."""
     
     coherence_llm = ChatOpenAI(
-        model="gpt-4o", 
+        model="gpt-4o-mini", 
         temperature=0
     ).with_structured_output(CoherenceGrade)
     
@@ -450,7 +450,7 @@ def create_conciseness_evaluator() -> Callable:
     Explain your reasoning step-by-step."""
     
     conciseness_llm = ChatOpenAI(
-        model="gpt-4o", 
+        model="gpt-4o-mini", 
         temperature=0
     ).with_structured_output(ConcisenessGrade)
     
@@ -504,7 +504,7 @@ def create_cost_evaluator() -> Callable:
     """
     # Cost per 1K tokens (approximate values)
     COST_PER_1K_TOKENS = {
-        "gpt-4o": 0.01,  # $0.01 per 1K tokens
+        "gpt-4o-mini": 0.01,  # $0.01 per 1K tokens
         "gpt-4": 0.03,   # $0.03 per 1K tokens
         "gpt-3.5-turbo": 0.0015,  # $0.0015 per 1K tokens
     }
@@ -521,7 +521,7 @@ def create_cost_evaluator() -> Callable:
             answer = outputs.get("answer", "")
             tokens_used = len(answer.split()) * 1.3  # Rough estimate
         
-        model_cost_per_1k = COST_PER_1K_TOKENS.get(model_name, 0.01)  # Default to gpt-4o price
+        model_cost_per_1k = COST_PER_1K_TOKENS.get(model_name, 0.01)  # Default to gpt-4o-mini price
         estimated_cost = (tokens_used / 1000) * model_cost_per_1k
         
         explanation = f"Estimated cost: ${estimated_cost:.6f} based on approximately {tokens_used:.0f} tokens at ${model_cost_per_1k} per 1K tokens"

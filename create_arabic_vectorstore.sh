@@ -1,1 +1,0 @@
-scripts/create_arabic_vectorstore.sh

@@ -1,5 +1,5 @@
 {
-  "source_path": "data/arabic/data_source.txt",
+  "source_path": "/Users/akoubaa/Dropbox/Dev_WS/scalexi_rag_bench/data/arabic/data_source.txt",
   "chunk_size": 1000,
   "chunk_overlap": 200,
   "document_count": 1,

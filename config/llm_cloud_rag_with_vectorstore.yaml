@@ -23,7 +23,7 @@ experiment_name: English GPT-4 Evaluation
 llm:
   api_key: null
   max_tokens: 1024
-  model_name: gpt-4o
+  model_name: gpt-4o-mini
   provider: openai
   temperature: 0.0
   top_p: null
@@ -38,6 +38,6 @@ retrieval:
   search_type: similarity
   similarity_top_k: null
 vectorstore:
-  output_dir: ./vectorstores/english_qa
-  path: ./vectorstores/english_qa/english_qa_cef5436db0
-  source_path: data/english/qa_dataset.json
+  output_dir: ./vectorstores/english_txt
+  path: ./vectorstores/english_txt/english_qa_8e3943dfbb
+  source_path: data/english/data_source.txt

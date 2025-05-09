@@ -68,7 +68,7 @@ retrieval:
 
 # LLM settings
 llm:
-  model_name: gpt-4o
+  model_name: gpt-4o-mini
   provider: openai
   temperature: 0.0
   max_tokens: 1024

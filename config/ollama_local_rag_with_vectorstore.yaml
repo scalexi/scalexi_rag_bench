@@ -38,5 +38,5 @@ retrieval:
   similarity_top_k: null
 vectorstore:
   output_dir: ./vectorstores/arabic_qa
-  path: ./vectorstores/arabic_qa/arabic_qa_93fcb6cd07
+  path: ./vectorstores/arabic_qa/arabic_qa_34c61649c3
   source_path: data/arabic/data_source.txt

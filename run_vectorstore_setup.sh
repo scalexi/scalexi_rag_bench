@@ -1,1 +1,0 @@
-scripts/run_vectorstore_setup.sh

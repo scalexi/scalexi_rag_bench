@@ -1,1 +1,0 @@
-scripts/create_text_vectorstore.sh

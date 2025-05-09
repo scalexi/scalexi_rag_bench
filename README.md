@@ -1,4 +1,4 @@
-# ScaleXI RAG Benchmark Framework
+# ScaleXI RAG Benchmark Framework - No-Code RAG Evaluation
 
 A low-code, comprehensive framework for evaluating and comparing Retrieval-Augmented Generation (RAG) systems across different models, embedding techniques, and datasets. Configure your evaluation through YAML files without writing a single line of code.
 

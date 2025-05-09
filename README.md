@@ -546,3 +546,17 @@ ScaleXI Innovation specializes in:
 - Enterprise-Grade LLM Solutions
 
 For more information about our services, visit our website at [https://scalexi.ai](https://scalexi.ai) or contact us at info@scalexi.ai.
+
+## 📜 License
+
+This work is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License](https://creativecommons.org/licenses/by-nc/4.0/).
+
+You are free to:
+- **Share** — copy and redistribute the material in any medium or format
+- **Adapt** — remix, transform, and build upon the material
+
+Under the following terms:
+- **Attribution** — You must give appropriate credit to ScaleXI Innovation, provide a link to the license, and indicate if changes were made.
+- **NonCommercial** — You may not use the material for commercial purposes without explicit permission from ScaleXI Innovation.
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a>

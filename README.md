@@ -13,7 +13,7 @@ A low-code, comprehensive framework for evaluating and comparing Retrieval-Augme
 
 Developed by [ScaleXI Innovation](https://scalexi.ai/), specialists in Generative AI and Large Language Models solutions.
 
-## �� Project Structure
+## 🌟 Project Structure
 
 ```
 scalexi_rag_bench/

@@ -1,8 +1,19 @@
 # ScaleXI RAG Benchmark Framework
 
-A comprehensive framework for evaluating Retrieval-Augmented Generation (RAG) systems across different models, embedding techniques, and datasets.
+A low-code, comprehensive framework for evaluating and comparing Retrieval-Augmented Generation (RAG) systems across different models, embedding techniques, and datasets. Configure your evaluation through YAML files without writing a single line of code.
 
-## 📂 Project Structure
+## 🌟 Key Features
+
+- **Low-Code Solution**: Configure your entire RAG evaluation pipeline through simple YAML files
+- **Dual Deployment Options**: Run evaluations on cloud-based models or locally with Ollama
+- **Comprehensive Metrics**: Evaluate both retrieval quality and generation accuracy
+- **Seamless LangSmith Integration**: Sync results directly with LangChain's LangSmith for advanced analytics 
+- **Multilingual Support**: Test RAG systems on English, Arabic, and other languages
+- **Visualized Reports**: Interactive HTML dashboards for easy result interpretation
+
+Developed by [ScaleXI Innovation](https://scalexi.ai/), specialists in Generative AI and Large Language Models solutions.
+
+## �� Project Structure
 
 ```
 scalexi_rag_bench/
@@ -117,35 +128,41 @@ vectorstore:
 
 ## 🔍 How It Works
 
-The RAG evaluation process is designed to be straightforward while providing comprehensive insights:
+The ScaleXI RAG Benchmark Framework is designed to provide a low-code approach to RAG evaluation with comprehensive insights:
 
-1. **Preparing Your Knowledge Base**
+1. **Zero-Code Configuration**
+   - Simply define your evaluation parameters in a YAML configuration file
+   - No Python coding required - the framework handles all the implementation details
+   - Modify parameters and re-run evaluations to quickly iterate and optimize
+
+2. **Preparing Your Knowledge Base**
    - Your source documents (specified in `source_path` in your config) are loaded
    - These can be text files, PDFs, or other supported formats in directories like `data/english/` or `data/arabic/`
    - Documents are split into smaller chunks (controlled by `chunk_size` and `chunk_overlap` in your config)
    - For example, with `chunk_size: 1000` and `chunk_overlap: 200`, a 3000-word document becomes ~4 overlapping chunks
 
-2. **Creating the Vector Database**
+3. **Creating the Vector Database**
    - Each document chunk is converted into a numerical vector using the embedding model (like `text-embedding-3-large`)
    - These vectors capture the semantic meaning of your text
    - Vectors are stored in a searchable database (FAISS) at the location specified in `vectorstore.output_dir`
    - You can see examples of these in the `vectorstores/` directory
 
-3. **Retrieval Process**
+4. **Retrieval Process**
    - When a query/question is processed, it's also converted to a vector using the same embedding model
    - The system finds the most similar document chunks by comparing vector similarity
    - The number of chunks retrieved is controlled by the `k` parameter in your config (e.g., `k: 4` retrieves the 4 most relevant chunks)
 
-4. **Generation with Context**
+5. **Generation with Context**
    - The retrieved document chunks are provided as context to the LLM specified in your config (e.g., `gpt-4o-mini`)
    - The LLM generates an answer based on this context and the question
    - The model, temperature, and other generation parameters are controlled through your config file
 
-5. **Evaluation and Reporting**
+6. **Evaluation and Reporting**
    - The system compares generated answers against reference answers from your dataset
    - Multiple metrics are calculated based on your configuration (correctness, relevance, etc.)
    - Results are saved to the directory structure in `results/` organized by model and language
-   - HTML reports make it easy to analyze performance
+   - Interactive HTML reports make it easy to analyze performance
+   - Optional seamless integration with LangSmith for deeper analytics
 
 To adapt this to your own data:
 - Place your source documents in a directory (similar to `data/english/` or `data/arabic/`)
@@ -258,25 +275,34 @@ Follow these steps to set up and run your own RAG evaluation with custom data:
 
 ## 📊 LangSmith Integration
 
-The toolkit integrates with LangChain's LangSmith for detailed evaluation tracking:
+The framework features seamless integration with LangChain's LangSmith for detailed evaluation tracking and analytics:
 
-1. **Set up LangSmith**
+1. **Zero-Configuration Integration**
+   - Once LangSmith credentials are set up, all evaluations are automatically tracked
+   - No additional coding or setup needed - the framework handles all integration points
+   - Simply run your evaluations as normal and results flow to LangSmith in real-time
+
+2. **Set Up LangSmith**
    - Sign up for LangSmith at [smith.langchain.com](https://smith.langchain.com)
-   - Set environment variables:
+   - Set environment variables in your `.env` file or shell:
      ```bash
      export LANGCHAIN_API_KEY=your_api_key
      export LANGCHAIN_TRACING_V2=true
      export LANGSMITH_PROJECT=rag-evaluation
      ```
 
-2. **Run Evaluation**
-   - The evaluation results are automatically sent to LangSmith
-   - Each evaluation run creates a new experiment
+3. **Comprehensive Analytics**
+   - Each evaluation run creates a new experiment in LangSmith
+   - Track detailed metrics on retrieval quality, generation accuracy, and cost
+   - Visualize performance patterns across different models and configurations
+   - Identify bottlenecks and optimization opportunities
 
-3. **Analyze Results**
-   - Access the LangSmith UI for detailed analysis
-   - Compare different evaluation runs
-   - Track performance over time
+4. **Compare Evaluations**
+   - Easily compare different RAG configurations side-by-side
+   - Analyze how changes to embeddings, chunk sizes, or retrieval settings impact performance
+   - Make data-driven decisions about your RAG system architecture
+
+The integration provides enterprise-grade analytics capabilities without requiring any additional development work, allowing you to focus on optimizing your RAG systems rather than building evaluation infrastructure.
 
 ## 🧰 Available Components and Options
 
@@ -508,3 +534,15 @@ LANGSMITH_API_KEY=your_langsmith_api_key
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 🔗 About ScaleXI Innovation
+
+This framework is developed and maintained by [ScaleXI Innovation](https://scalexi.ai/), specialists in Generative AI and Large Language Model solutions. 
+
+ScaleXI Innovation specializes in:
+- Generative AI for Business Automation
+- AI-Driven Digital Transformation
+- Generative AI Consultation
+- Enterprise-Grade LLM Solutions
+
+For more information about our services, visit our website at [https://scalexi.ai](https://scalexi.ai) or contact us at info@scalexi.ai.
